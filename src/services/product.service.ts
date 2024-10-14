@@ -11,4 +11,11 @@ export class ProductService {
       }
     })
   }
+  public static async getProductsByCategory(category: string) {
+    return await prisma.PRODUCTS.findMany({
+      where: {
+        category: category
+      }
+    });
+  }
 }
