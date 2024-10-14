@@ -1,0 +1,28 @@
+{
+  "name": "maranyon-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node-dev --respawn --transpile-only --exit-child src/server.ts",
+    "db:migrate": "npx prisma migrate dev --name user-entity --create-only && npx prisma generate",
+    "db:push": "npx prisma db push",
+    "generate": "npx prisma generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^5.20.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.5",
+    "express": "^4.21.1",
+    "prisma": "^5.20.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}
