@@ -14,13 +14,21 @@ datasource db {
 }
 
 model PRODUCTS {
-  id         Int      @id @default(autoincrement())
-  title      String
-  imageUrls  String[]
+  id          Int      @id @default(autoincrement())
+  title       String
+  imageUrls   String[]
   description String  
-  category   String
-  price      Int
-  color      String
-  weight     String
-  size       String
+  category    String
+  price       Int
+  color       String
+  weight      String
+  size        String
+}
+
+model News {
+  id          Int      @id @default(autoincrement())
+  title       String
+  image       String
+  description String  
+  createdAt   String
 }
