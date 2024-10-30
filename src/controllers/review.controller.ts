@@ -3,9 +3,13 @@ import { ReviewService } from '../services/review.service';
 import { IReview } from '../types/review';
 
 export class ReviewController {
-  public static async getAll(_: Request, res: Response) {
+  public static async getAll(req: Request, res: Response) {
     try {
-      const reviews = await ReviewService.getAll();
+      let reviews: IReview[];
+      const newsId = req.query.newsId as string;
+
+      if (newsId) reviews = await ReviewService.getAllByNewsId(Number(newsId));
+      else reviews = await ReviewService.getAll();
 
       res.status(200).json(reviews);
     } catch (e) {
