@@ -5,6 +5,13 @@ export class ReviewService {
   public static async getAll() {
     return await prisma.reviews.findMany();
   }
+  public static async getOne(id: number) {
+    return await prisma.reviews.findUnique({
+      where: {
+        id: id,
+      },
+    });
+  }
   public static async create(review: IReview) {
     return await prisma.reviews.create({
       data: review,

@@ -12,6 +12,15 @@ export class ReviewController {
       res.status(500).json({ error: e });
     }
   }
+  public static async getOne(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const review = await ReviewService.getOne(Number(id));
+      res.status(200).json(review);
+    } catch (e) {
+      res.status(500).json({ error: e });
+    }
+  }
   public static async create(req: Request, res: Response) {
     try {
       const review = req.body as IReview;
