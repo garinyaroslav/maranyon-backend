@@ -27,8 +27,8 @@ export class ProductController {
   public static async getOne(req: Request, res: Response) {
     try {
       const { id } = req.params;
-      const products = await ProductService.getOne(Number(id));
-      res.status(200).json(products);
+      const product = await ProductService.getOne(Number(id));
+      res.status(200).json(product);
     } catch (e) {
       res.status(500).json({ error: e });
     }

@@ -1,7 +1,10 @@
-import express, { Request, Response } from "express";
-import { PrismaClient } from "@prisma/client";
-import ProductRouter from '../src/routes/product.router';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
+import { PrismaClient } from '@prisma/client';
+
+import ProductRouter from '../src/routes/product.router';
+import NewsRouter from '../src/routes/news.router';
+import ReviewRouter from '../src/routes/review.router';
 
 export const prisma = new PrismaClient();
 const app = express();
@@ -11,9 +14,11 @@ async function main() {
   app.use(cors());
   app.use(express.json());
 
-  app.use("/product", ProductRouter);
+  app.use('/product', ProductRouter);
+  app.use('/news', NewsRouter);
+  app.use('/review', ReviewRouter);
 
-  app.all("*", (req: Request, res: Response) => {
+  app.all('*', (req: Request, res: Response) => {
     res.status(404).json({ error: `Route ${req.originalUrl} not found` });
   });
 

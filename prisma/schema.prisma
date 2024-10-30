@@ -13,7 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model PRODUCTS {
+model Products {
   id          Int      @id @default(autoincrement())
   title       String
   imageUrls   String[]
@@ -31,4 +31,11 @@ model News {
   image       String
   description String  
   createdAt   String
+}
+
+model Reviews {
+  id          Int      @id @default(autoincrement())
+  newsId      Int      
+  userName    String
+  text        String
 }
