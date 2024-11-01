@@ -39,3 +39,9 @@ model Reviews {
   userName    String
   text        String
 }
+
+model Admins {
+  id          Int      @id @default(autoincrement())
+  login       String
+  passHash    String
+}
