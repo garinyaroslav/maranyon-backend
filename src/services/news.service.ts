@@ -3,7 +3,7 @@ import { INews } from '../types/news';
 
 export class NewsService {
   public static async getAll() {
-    return await prisma.news.findMany();
+    return await prisma.news.findMany({ orderBy: { id: 'asc' } });
   }
   public static async getOne(id: number) {
     return await prisma.news.findUnique({

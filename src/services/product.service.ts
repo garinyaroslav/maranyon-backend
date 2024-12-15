@@ -3,7 +3,7 @@ import { IProduct } from '../types/product';
 
 export class ProductService {
   public static async getAll() {
-    return await prisma.products.findMany();
+    return await prisma.products.findMany({ orderBy: { id: 'asc' } });
   }
   public static async getOne(id: number) {
     return await prisma.products.findUnique({

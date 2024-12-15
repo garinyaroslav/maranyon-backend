@@ -31,10 +31,12 @@ model News {
   image       String
   description String  
   createdAt   String
+  reviews     Reviews[]
 }
 
 model Reviews {
   id          Int      @id @default(autoincrement())
+  news        News     @relation(fields: [newsId], references: [id])
   newsId      Int      
   userName    String
   text        String
@@ -45,3 +47,4 @@ model Admins {
   login       String
   passHash    String
 }
+

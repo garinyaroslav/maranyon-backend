@@ -3,7 +3,7 @@ import { IReview } from '../types/review';
 
 export class ReviewService {
   public static async getAll() {
-    return await prisma.reviews.findMany();
+    return await prisma.reviews.findMany({ orderBy: { id: 'asc' } });
   }
 
   public static async getAllByNewsId(id: number) {
