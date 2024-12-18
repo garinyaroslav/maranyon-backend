@@ -36,7 +36,7 @@ model News {
 
 model Reviews {
   id          Int      @id @default(autoincrement())
-  news        News     @relation(fields: [newsId], references: [id])
+  news        News     @relation(fields: [newsId], references: [id], onDelete: Cascade)
   newsId      Int      
   userName    String
   text        String
